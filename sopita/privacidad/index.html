@@ -3,51 +3,174 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Política de privacidad de Sopita</title>
+<meta name="description" content="Qué información usa el juego Sopita: Sopa de Letras y qué derechos tiene sobre ella.">
+<link rel="canonical" href="https://nettlestudios.github.io/sopita/privacidad/">
+<link rel="alternate" hreflang="es" href="https://nettlestudios.github.io/sopita/privacidad/">
+<link rel="alternate" hreflang="en" href="https://nettlestudios.github.io/sopita/privacy/">
 <style>
-:root { --papel: #FBF7F0; --tinta: #33231C; --suave: #6B5A50; --linea: #E4DCCF; --vino: #7A1424; }
+:root {
+  --fondo: #ffffff; --superficie: #f6f7f9; --texto: #1b1c20; --suave: #575a63; --linea: #e2e4e9;
+  --enlace: #1d4ed0; --seleccion: #dbe5ff;
+  --letra: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
 @media (prefers-color-scheme: dark) {
-  :root { --papel: #1E1714; --tinta: #F2EAE0; --suave: #C9BBAE; --linea: #3A2E28; --vino: #E58A96; }
+  :root {
+    --fondo: #121316; --superficie: #1b1d21; --texto: #e7e8ec; --suave: #a6a9b3; --linea: #2c2f35;
+    --enlace: #8fb2ff; --seleccion: #2a3b66;
+  }
 }
-html { background: var(--papel); color: var(--tinta); }
-body { margin: 0 auto; max-width: 42rem; padding: 2rem 1rem 4rem; font: 1.125rem/1.6 Georgia, "Times New Roman", serif; }
-h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 1.2rem; }
-h2 { font-size: 1.3rem; margin: 2.2rem 0 .6rem; }
-a { color: var(--vino); }
-table { width: 100%; border-collapse: collapse; font-size: 1rem; margin: 1rem 0; }
-th, td { text-align: left; vertical-align: top; padding: .6rem .5rem; border-bottom: 1px solid var(--linea); }
-th { color: var(--suave); font-weight: normal; }
-@media (max-width: 34rem) {
-  table, thead, tbody, tr, th, td { display: block; }
-  thead { display: none; }
-  tr { border-bottom: 1px solid var(--linea); padding: .4rem 0; }
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--fondo); color: var(--texto); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; font: 400 1.0625rem/1.65 var(--letra); font-feature-settings: "kern"; }
+::selection { background: var(--seleccion); }
+a { color: var(--enlace); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--enlace); outline-offset: 3px; border-radius: 2px; }
+.saltar { position: absolute; left: 1rem; top: -3rem; padding: .5rem .75rem; background: var(--fondo); border: 1px solid var(--linea); border-radius: 6px; }
+.saltar:focus { top: 1rem; }
+.cabecera { border-bottom: 1px solid var(--linea); }
+.cabecera > div, main, .pie > div { max-width: 46rem; margin: 0 auto; padding-left: 1.25rem; padding-right: 1.25rem; }
+.cabecera > div { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
+.marca { font-weight: 650; letter-spacing: -.005em; }
+.marca span { color: var(--suave); font-weight: 400; }
+.idioma a { font-size: .9375rem; display: inline-block; padding: .5rem 0; }
+main { padding-top: 2.75rem; padding-bottom: 3rem; }
+h1 { font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 700; margin: 0 0 .5rem; text-wrap: balance; }
+.meta { color: var(--suave); font-size: .9375rem; margin: 0 0 2rem; }
+h2 { font-size: 1.25rem; line-height: 1.3; letter-spacing: -.01em; font-weight: 650; margin: 2.75rem 0 .75rem; text-wrap: balance; scroll-margin-top: 1.5rem; }
+h2 .num { color: var(--suave); font-variant-numeric: tabular-nums; font-weight: 500; margin-right: .15em; }
+p, ul, ol { margin: 0 0 1rem; max-width: 68ch; }
+ul, ol { padding-left: 1.4rem; }
+li { margin: .35rem 0; }
+li::marker { color: var(--suave); }
+strong { font-weight: 650; }
+code { font-family: var(--mono); font-size: .875em; background: var(--superficie); border: 1px solid var(--linea); border-radius: 4px; padding: .05em .3em; overflow-wrap: anywhere; }
+.resumen { background: var(--superficie); border: 1px solid var(--linea); border-radius: 10px; padding: .25rem 1.25rem .5rem; margin: 0 0 2.5rem; }
+.resumen h2 { margin-top: 1rem; }
+.indice { border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); padding: .25rem 0 1rem; margin: 0 0 1rem; }
+.indice h2 { font-size: .9375rem; color: var(--suave); font-weight: 600; margin: 1rem 0 .5rem; }
+.indice ol { list-style: none; padding: 0; margin: 0; columns: 2 16rem; column-gap: 2rem; max-width: none; }
+.indice li { margin: 0; break-inside: avoid; }
+.indice a { display: flex; align-items: baseline; padding: .3rem 0; text-decoration: none; }
+.indice a:hover { text-decoration: underline; }
+.indice .num { flex: none; color: var(--suave); font-variant-numeric: tabular-nums; min-width: 1.9em; }
+.tabla { margin: 1rem 0 1.25rem; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9375rem; line-height: 1.5; }
+th, td { text-align: left; vertical-align: top; padding: .65rem .75rem .65rem 0; border-bottom: 1px solid var(--linea); }
+th { color: var(--suave); font-weight: 600; font-size: .8125rem; letter-spacing: .01em; border-bottom-color: var(--texto); }
+.resumen td:first-child { font-weight: 600; width: 36%; }
+.resumen tr:last-child td { border-bottom: 0; }
+.pie { border-top: 1px solid var(--linea); color: var(--suave); font-size: .875rem; }
+.pie > div { padding-top: 1.5rem; padding-bottom: 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; }
+.pie p { margin: 0; }
+@media (max-width: 40rem) {
+  body { font-size: 1rem; }
+  .tabla { overflow: visible; }
+  table, thead, tbody, tr, td { display: block; width: 100%; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  tr { border-bottom: 1px solid var(--linea); padding: .5rem 0; }
   td { border: 0; padding: .2rem 0; }
+  td::before { content: attr(data-rotulo); display: block; color: var(--suave); font-size: .8125rem; font-weight: 600; }
+  .resumen td:first-child { width: 100%; }
+  .resumen td:first-child::before { display: none; }
+  .resumen td + td::before { display: none; }
+  .resumen tr:last-child { border-bottom: 0; }
 }
-li { margin: .3rem 0; }
+@media print {
+  :root { --fondo: #fff; --superficie: #fff; --texto: #000; --suave: #333; --linea: #bbb; --enlace: #000; }
+  body { font-size: 10.5pt; }
+  .saltar, .idioma, .indice { display: none; }
+  main { padding-top: 1rem; }
+  .resumen { border-radius: 0; }
+  h2 { break-after: avoid; }
+  tr { break-inside: avoid; }
+}
 </style>
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="cabecera"><div>
+<p class="marca">Sopita <span>· Nettle</span></p>
+<nav class="idioma" aria-label="Idioma"><a href="../privacy/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main id="contenido">
 <h1>Política de privacidad de Sopita</h1>
-<p><strong>Sopita: Sopa de Letras</strong> es un juego para Android de <strong>Nettle</strong>, un estudio independiente de Cali, Colombia. Esta política explica qué datos usa el juego y qué pasa con ellos.</p>
-<p>Vigente desde el 1 de octubre de 2026. Cambio respecto de la versión del 23 de septiembre: ahora dice que Android puede guardar una copia del progreso en la cuenta de Google de quien juega.</p>
-<h2>En pocas palabras</h2>
-<p><strong>Sopita no recoge ningún dato personal y no le manda nada a Nettle.</strong> No hay cuenta que crear, no hay registro, no hay publicidad y no hay medición de uso.</p>
-<h2>Qué guarda el juego, y dónde</h2>
-<table><thead><tr><th>Qué</th><th>Para qué</th><th>Dónde queda</th></tr></thead><tbody><tr><td>El progreso: los niveles terminados, las monedas y las palabras encontradas</td><td>Para seguir donde se dejó</td><td>En el teléfono, en la carpeta privada del juego</td></tr><tr><td>Los ajustes: el tamaño de letra, las animaciones y el sonido</td><td>Para que el juego se vea y suene como se eligió</td><td>En el teléfono, en la carpeta privada del juego</td></tr><tr><td>Una copia del progreso y los ajustes</td><td>Para no perderlos al cambiar de teléfono</td><td>En la copia de seguridad de Google del propio teléfono, si está encendida: cifrada, en la cuenta de quien juega, y Nettle no puede verla</td></tr></tbody></table>
-<p>Nada de esto identifica a nadie y no se comparte con nadie: ni con Nettle ni con terceros.</p>
-<h2>Lo que el juego no hace</h2>
-<ul><li>No pide nombre, correo, teléfono ni ningún otro dato personal.</li><li>No usa la ubicación, la cámara, el micrófono, los contactos ni las fotos.</li><li>No usa el identificador de publicidad del teléfono.</li><li>No muestra publicidad y no mide cómo se juega.</li><li>No vende ni cede datos a nadie.</li></ul>
-<h2>Google Play</h2>
-<p>Sopita se descarga desde Google Play, y Google trata los datos de su propio servicio —la cuenta de Google, las descargas y los pagos— según su política de privacidad: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>. Nettle no recibe esos datos.</p>
-<h2>Niños</h2>
-<p>Sopita está pensada para personas adultas y no está dirigida a menores de 13 años. Como no recoge datos personales de nadie, tampoco los recoge de menores.</p>
-<h2>Cómo borrar los datos</h2>
-<p>Hay dos formas de borrar lo que está en el teléfono:</p>
-<ol><li>Dentro del juego: <strong>Ajustes → Borrar progreso</strong>. Borra los niveles, las monedas y las palabras aprendidas. Los ajustes se conservan.</li><li>Desinstalando Sopita: Android borra la carpeta privada del juego con todo lo que tenía.</li></ol>
-<p>La copia de Google se borra desde los ajustes de copia de seguridad del teléfono.</p>
-<h2>Cambios a esta política</h2>
-<p>Si Sopita cambia lo que hace con los datos —por ejemplo, si algún día muestra publicidad o mide cómo se juega—, esta política se actualiza <strong>antes</strong> de que salga esa versión, con la fecha nueva arriba y el cambio explicado. La versión vigente es siempre la publicada en esta dirección.</p>
-<h2>Contacto</h2>
-<p>Para cualquier consulta sobre privacidad: <strong><a href="mailto:nettledoingitagain@gmail.com">nettledoingitagain@gmail.com</a></strong>, o escribiendo a Nettle desde la ficha de Sopita en Google Play.</p>
+<p class="meta">Vigente desde el <time datetime="2026-10-01">1 de octubre de 2026</time></p>
+<p>Esta política explica qué información usa el juego <strong>Sopita: Sopa de Letras</strong> (la «aplicación»), publicado en Google Play por <strong>Nettle</strong>, un estudio independiente con sede en Cali, Colombia («Nettle» o «nosotros»), y qué derechos tiene usted sobre ella. Se aplica a la aplicación y a esta página.</p>
+<section class="seccion resumen" aria-labelledby="resumen">
+<h2 id="resumen">Resumen</h2>
+<div class="tabla"><table><thead><tr><th scope="col">Tema</th><th scope="col">Lo que hace Sopita</th></tr></thead><tbody><tr><td data-rotulo="Tema">Datos personales</td><td data-rotulo="Lo que hace Sopita">No los recoge. Nettle no recibe ningún dato de la aplicación</td></tr><tr><td data-rotulo="Tema">Internet</td><td data-rotulo="Lo que hace Sopita">La aplicación no tiene permiso para usar internet: no envía ni recibe datos por la red</td></tr><tr><td data-rotulo="Tema">Publicidad y medición de uso</td><td data-rotulo="Lo que hace Sopita">No hay publicidad, analítica ni informes de fallos de terceros</td></tr><tr><td data-rotulo="Tema">Cuentas</td><td data-rotulo="Lo que hace Sopita">No hay cuentas ni registro</td></tr><tr><td data-rotulo="Tema">Lo que se guarda</td><td data-rotulo="Lo que hace Sopita">El progreso y los ajustes del juego, en su teléfono</td></tr><tr><td data-rotulo="Tema">Copia de seguridad</td><td data-rotulo="Lo que hace Sopita">Android puede incluir esos datos en la copia de seguridad de Google de su teléfono, si usted la tiene activada</td></tr><tr><td data-rotulo="Tema">Venta o cesión de datos</td><td data-rotulo="Lo que hace Sopita">Nunca</td></tr></tbody></table></div>
+</section>
+<nav class="indice" aria-labelledby="indice"><h2 id="indice">Contenido</h2><ol><li><a href="#responsable"><span class="num">1.</span> Responsable</a></li><li><a href="#informacion-que-la-aplicacion-guarda-en-su-telefono"><span class="num">2.</span> Información que la aplicación guarda en su teléfono</a></li><li><a href="#informacion-que-no-recogemos"><span class="num">3.</span> Información que no recogemos</a></li><li><a href="#permisos-del-dispositivo"><span class="num">4.</span> Permisos del dispositivo</a></li><li><a href="#copia-de-seguridad-de-android"><span class="num">5.</span> Copia de seguridad de Android</a></li><li><a href="#google-play"><span class="num">6.</span> Google Play</a></li><li><a href="#con-quien-compartimos-informacion"><span class="num">7.</span> Con quién compartimos información</a></li><li><a href="#conservacion-y-eliminacion"><span class="num">8.</span> Conservación y eliminación</a></li><li><a href="#seguridad"><span class="num">9.</span> Seguridad</a></li><li><a href="#ninos"><span class="num">10.</span> Niños</a></li><li><a href="#sus-derechos"><span class="num">11.</span> Sus derechos</a></li><li><a href="#transferencias-internacionales"><span class="num">12.</span> Transferencias internacionales</a></li><li><a href="#cambios-en-esta-politica"><span class="num">13.</span> Cambios en esta política</a></li><li><a href="#contacto"><span class="num">14.</span> Contacto</a></li></ol></nav>
+<section class="seccion" aria-labelledby="responsable">
+<h2 id="responsable"><span class="num">1.</span> Responsable</h2>
+<p>El responsable de esta política y de la aplicación es <strong>Nettle</strong>, Cali, Colombia. Para cualquier consulta sobre privacidad, escriba a <strong><a href="mailto:nettledoingitagain@gmail.com">nettledoingitagain@gmail.com</a></strong>.</p>
+</section>
+<section class="seccion" aria-labelledby="informacion-que-la-aplicacion-guarda-en-su-telefono">
+<h2 id="informacion-que-la-aplicacion-guarda-en-su-telefono"><span class="num">2.</span> Información que la aplicación guarda en su teléfono</h2>
+<div class="tabla"><table><thead><tr><th scope="col">Dato</th><th scope="col">Para qué</th><th scope="col">Dónde se guarda</th><th scope="col">Cuánto tiempo</th></tr></thead><tbody><tr><td data-rotulo="Dato">El progreso: niveles terminados, monedas, palabras encontradas y días jugados del desafío</td><td data-rotulo="Para qué">Continuar donde lo dejó</td><td data-rotulo="Dónde se guarda">En el almacenamiento privado de la aplicación, en su teléfono</td><td data-rotulo="Cuánto tiempo">Hasta que usted lo borre o desinstale la aplicación</td></tr><tr><td data-rotulo="Dato">Los ajustes: tamaño de la letra, animaciones, sonido y vibración</td><td data-rotulo="Para qué">Que el juego se vea y suene como usted lo eligió</td><td data-rotulo="Dónde se guarda">En el almacenamiento privado de la aplicación, en su teléfono</td><td data-rotulo="Cuánto tiempo">Hasta que usted los borre o desinstale la aplicación</td></tr></tbody></table></div>
+<p>Esta información no identifica a ninguna persona, la aplicación no la envía a ningún lado y Nettle no tiene acceso a ella.</p>
+</section>
+<section class="seccion" aria-labelledby="informacion-que-no-recogemos">
+<h2 id="informacion-que-no-recogemos"><span class="num">3.</span> Información que no recogemos</h2>
+<ul><li>No pedimos nombre, correo, teléfono, fecha de nacimiento ni ningún otro dato personal.</li><li>No accedemos a la ubicación, la cámara, el micrófono, los contactos, las fotos ni los archivos del teléfono.</li><li>No usamos el identificador de publicidad del dispositivo.</li><li>La aplicación no incluye herramientas de terceros para publicidad, analítica ni informes de fallos.</li><li>Ni la aplicación ni esta página usan cookies, scripts de seguimiento ni herramientas de medición.</li></ul>
+</section>
+<section class="seccion" aria-labelledby="permisos-del-dispositivo">
+<h2 id="permisos-del-dispositivo"><span class="num">4.</span> Permisos del dispositivo</h2>
+<p>La aplicación no pide ningún permiso que requiera su autorización y <strong>no incluye el permiso de acceso a internet</strong>, por lo que no puede enviar ni recibir datos a través de la red. El único permiso que declara, <code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>, lo agrega la biblioteca AndroidX para el uso interno de la propia aplicación y no da acceso a ningún dato.</p>
+</section>
+<section class="seccion" aria-labelledby="copia-de-seguridad-de-android">
+<h2 id="copia-de-seguridad-de-android"><span class="num">5.</span> Copia de seguridad de Android</h2>
+<p>Si usted tiene activada la copia de seguridad de Google en su teléfono, Android puede incluir en ella el progreso y los ajustes de la aplicación, para que pueda recuperarlos al cambiar de teléfono. Esa copia la hace el sistema operativo, no la aplicación: se guarda en su cuenta de Google, protegida con cifrado, y Nettle no tiene acceso a ella. Su tratamiento se rige por la política de privacidad de Google. Puede desactivarla o borrarla desde los ajustes de copia de seguridad de su teléfono.</p>
+</section>
+<section class="seccion" aria-labelledby="google-play">
+<h2 id="google-play"><span class="num">6.</span> Google Play</h2>
+<p>La aplicación se descarga y se actualiza a través de Google Play. Google trata los datos de su propio servicio, como su cuenta y sus descargas, según su política de privacidad: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>. Google Play pone a disposición de los desarrolladores estadísticas agregadas, como el número de instalaciones, y los informes de fallos que Android envía a Google si usted lo autorizó en su teléfono. Esa información no permite a Nettle identificar a ninguna persona.</p>
+</section>
+<section class="seccion" aria-labelledby="con-quien-compartimos-informacion">
+<h2 id="con-quien-compartimos-informacion"><span class="num">7.</span> Con quién compartimos información</h2>
+<p>No vendemos, alquilamos, cedemos ni compartimos información personal con nadie, porque no la recogemos. Tampoco la usamos para publicidad dirigida ni para crear perfiles.</p>
+</section>
+<section class="seccion" aria-labelledby="conservacion-y-eliminacion">
+<h2 id="conservacion-y-eliminacion"><span class="num">8.</span> Conservación y eliminación</h2>
+<p>Los datos de la aplicación se conservan en su teléfono hasta que usted los borra. Puede hacerlo de dos maneras:</p>
+<ol><li>En <strong>Ajustes</strong>, con la opción <strong>Borrar el progreso</strong>. Borra los niveles, las monedas y las palabras; los ajustes se conservan.</li><li>Desinstalando la aplicación. Android borra todo lo que la aplicación guardaba.</li></ol>
+<p>La copia de seguridad de Google se gestiona desde los ajustes de copia de seguridad del teléfono. Como Nettle no guarda datos de la aplicación en ningún servidor, no hay nada que eliminar de nuestro lado.</p>
+</section>
+<section class="seccion" aria-labelledby="seguridad">
+<h2 id="seguridad"><span class="num">9.</span> Seguridad</h2>
+<p>Los datos se guardan en el almacenamiento privado que Android asigna a la aplicación, al que otras aplicaciones no pueden acceder. Como la aplicación no se conecta a internet, no transmite datos por la red.</p>
+</section>
+<section class="seccion" aria-labelledby="ninos">
+<h2 id="ninos"><span class="num">10.</span> Niños</h2>
+<p>Sopita está pensada para personas adultas y no está dirigida a menores de 13 años. La aplicación no recoge datos personales de nadie, tampoco de menores. Si cree que un menor nos envió datos personales por correo, escríbanos y los borraremos.</p>
+</section>
+<section class="seccion" aria-labelledby="sus-derechos">
+<h2 id="sus-derechos"><span class="num">11.</span> Sus derechos</h2>
+<p>Según dónde viva, la ley le reconoce derechos sobre sus datos personales: por ejemplo, el Reglamento General de Protección de Datos (RGPD) en la Unión Europea y el Reino Unido, la Ley de Privacidad del Consumidor de California (CCPA) en Estados Unidos, la Ley Federal de Protección de Datos Personales en Posesión de los Particulares en México, la Ley 1581 de 2012 en Colombia, la Ley 25.326 en Argentina y la Ley General de Protección de Datos (LGPD) en Brasil. Esos derechos incluyen acceder a sus datos, corregirlos, borrarlos, oponerse a su tratamiento o limitarlo, llevarlos a otro servicio y presentar una reclamación ante la autoridad de protección de datos de su país.</p>
+<p>Como Nettle no recoge ni guarda datos personales de la aplicación, no tenemos datos suyos que mostrarle, corregir o borrar: los que la aplicación guarda están en su teléfono y usted los controla por completo (sección 8). Para ejercer cualquier derecho o hacer una consulta, escriba a <strong><a href="mailto:nettledoingitagain@gmail.com">nettledoingitagain@gmail.com</a></strong>.</p>
+<p>Si nos escribe, usaremos su dirección y su mensaje sólo para responderle, y los borraremos cuando la consulta esté resuelta, salvo que la ley nos obligue a conservarlos.</p>
+</section>
+<section class="seccion" aria-labelledby="transferencias-internacionales">
+<h2 id="transferencias-internacionales"><span class="num">12.</span> Transferencias internacionales</h2>
+<p>Nettle no transfiere datos personales a otros países, porque no los recoge. Si nos escribe por correo, el mensaje queda en el servicio de correo de Google, que puede alojarlo fuera de su país.</p>
+</section>
+<section class="seccion" aria-labelledby="cambios-en-esta-politica">
+<h2 id="cambios-en-esta-politica"><span class="num">13.</span> Cambios en esta política</h2>
+<p>Si cambia lo que la aplicación hace con los datos, por ejemplo si incorpora publicidad o medición de uso, actualizaremos esta política <strong>antes</strong> de publicar esa versión, con la nueva fecha arriba y el cambio explicado en el historial. La versión vigente es siempre la publicada en esta dirección.</p>
+<div class="tabla"><table><thead><tr><th scope="col">Fecha</th><th scope="col">Cambio</th></tr></thead><tbody><tr><td data-rotulo="Fecha">1 de octubre de 2026</td><td data-rotulo="Cambio">Se agregan la copia de seguridad de Android, los permisos, los derechos según cada país y la versión en inglés</td></tr><tr><td data-rotulo="Fecha">23 de septiembre de 2026</td><td data-rotulo="Cambio">Primera versión</td></tr></tbody></table></div>
+</section>
+<section class="seccion" aria-labelledby="contacto">
+<h2 id="contacto"><span class="num">14.</span> Contacto</h2>
+<p><strong>Nettle</strong> · Cali, Colombia · <strong><a href="mailto:nettledoingitagain@gmail.com">nettledoingitagain@gmail.com</a></strong>. También puede escribirnos desde la ficha de Sopita en Google Play.</p>
+</section>
+</main>
+<footer class="pie"><div>
+<p>Nettle · Cali, Colombia · <a href="mailto:nettledoingitagain@gmail.com">nettledoingitagain@gmail.com</a></p>
+<p>Esta página no usa cookies, scripts ni herramientas de medición.</p>
+</div></footer>
 </body>
 </html>
